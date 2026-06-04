@@ -490,8 +490,7 @@
                       "id": "byValue",
                       "options": {
                         "op": "gte",
-                        "reducer": "allIsNull",
-                        "value": null
+                        "reducer": "allIsNull"
                       }
                     },
                     "properties": [
@@ -536,6 +535,16 @@
                       {
                         "id": "custom.width",
                         "value": 1023
+                      },
+                      {
+                        "id": "links",
+                        "value": [
+                          {
+                            "targetBlank": true,
+                            "title": "Release Notes",
+                            "url": "${__value.raw}"
+                          }
+                        ]
                       }
                     ]
                   },
