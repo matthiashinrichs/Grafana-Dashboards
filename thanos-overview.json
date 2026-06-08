@@ -1259,10 +1259,12 @@
                       "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
-                        "expr": "kube_pod_container_status_last_terminated_reason{pod=~\"query\"} != 0",
+                        "exemplar": false,
+                        "expr": "kube_pod_container_status_last_terminated_reason{pod=~\"thanos-query.*\"} != 0",
+                        "instant": true,
                         "interval": "",
                         "legendFormat": "{{reason}} - {{pod}}",
-                        "range": true
+                        "range": false
                       },
                       "version": "v0"
                     },
@@ -1859,9 +1861,11 @@
                       "group": "prometheus",
                       "kind": "DataQuery",
                       "spec": {
+                        "editorMode": "code",
                         "expr": "kube_pod_container_status_last_terminated_reason{pod=~\"thanos-query-frontend.*\"} != 0",
                         "interval": "",
-                        "legendFormat": "{{reason}} - {{pod}}"
+                        "legendFormat": "{{reason}} - {{pod}}",
+                        "range": true
                       },
                       "version": "v0"
                     },
