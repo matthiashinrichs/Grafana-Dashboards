@@ -1503,9 +1503,11 @@
                       "group": "prometheus",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum(container_spec_cpu_shares{container=\"thanos-query-frontend\"}) by (pod) / 1000",
+                        "editorMode": "code",
+                        "expr": "sum(container_spec_cpu_shares{container=\"query-frontend\"}) by (pod) / 1000",
                         "interval": "",
-                        "legendFormat": "{{pod}} limit"
+                        "legendFormat": "{{pod}} limit",
+                        "range": true
                       },
                       "version": "v0"
                     },
@@ -1523,9 +1525,11 @@
                       "group": "prometheus",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum(irate(container_cpu_usage_seconds_total{container=\"thanos-query-frontend\"}[$__interval])) by (pod)",
+                        "editorMode": "code",
+                        "expr": "sum(irate(container_cpu_usage_seconds_total{container=\"query-frontend\"}[$__interval])) by (pod)",
                         "interval": "",
-                        "legendFormat": "{{container}}"
+                        "legendFormat": "{{container}}",
+                        "range": true
                       },
                       "version": "v0"
                     },
@@ -1677,9 +1681,11 @@
                       "group": "prometheus",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "max(container_spec_memory_limit_bytes{pod=~\"thanos-query-frontend.*\"}) by (pod)",
+                        "editorMode": "code",
+                        "expr": "max(container_spec_memory_limit_bytes{pod=~\"query-frontend.*\"}) by (pod)",
                         "interval": "",
-                        "legendFormat": "{{pod}} (limit)"
+                        "legendFormat": "{{pod}} (limit)",
+                        "range": true
                       },
                       "version": "v0"
                     },
@@ -1697,9 +1703,11 @@
                       "group": "prometheus",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum(max_over_time(container_memory_working_set_bytes{container=~\"thanos-query-frontend.*\"}[$__interval])) by (pod)",
+                        "editorMode": "code",
+                        "expr": "sum(max_over_time(container_memory_working_set_bytes{container=~\"query-frontend.*\"}[$__interval])) by (pod)",
                         "interval": "",
-                        "legendFormat": "{{pod}}"
+                        "legendFormat": "{{pod}}",
+                        "range": true
                       },
                       "version": "v0"
                     },
@@ -2372,7 +2380,7 @@
           {
             "kind": "RowsLayoutRow",
             "spec": {
-              "collapse": true,
+              "collapse": false,
               "layout": {
                 "kind": "GridLayout",
                 "spec": {
@@ -2570,7 +2578,20 @@
         ]
       }
     },
-    "links": [],
+    "links": [
+      {
+        "asDropdown": false,
+        "icon": "external link",
+        "includeVars": false,
+        "keepTime": false,
+        "tags": [],
+        "targetBlank": true,
+        "title": "Source (GitHub)",
+        "tooltip": "View source file in repository",
+        "type": "link",
+        "url": "https://github.com/matthiashinrichs/Grafana-Dashboards/blob/main/thanos-overview.json"
+      }
+    ],
     "liveNow": false,
     "preload": false,
     "tags": [],
